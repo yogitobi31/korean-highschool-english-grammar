@@ -2,203 +2,43 @@ import { Chapter } from './types';
 
 export const chapters: Chapter[] = [
   {
-    "id": 1,
-    "title": "명사와 그 확장",
-    "description": "명사 핵심과 수식 구조를 구분한다.",
-    "keyQuestion": "문장의 핵심 명사는 어디인가?",
-    "trap": "of 뒤 명사에 시선이 뺏기는 함정",
-    "coreConcept": "명사와 그 확장는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
+    id: 1,
+    title: '명사와 그 확장',
+    description: '명사는 문장에서 사람·사물 이름이 아니라 "주어/목적어/보어 자리"를 채우는 핵심 덩어리다.',
+    keyQuestion: '이 덩어리가 문장에서 명사 자리(주어/목적어/보어)에 들어갔는가?',
+    trap: 'A of B에서 B를 주어처럼 착각하거나, 동명사/to부정사의 명사 역할을 놓치는 함정',
+    coreConcept: '명사를 볼 때는 뜻보다 자리를 먼저 본다. 문장에서 주어, 목적어, 보어 자리에 들어가면 명사 역할이다. 단어 하나만 명사가 아니라, 동명사구, to부정사구, that절, what절도 통째로 명사 덩어리가 될 수 있다.',
+    examPattern: '수능/내신에서는 (1) 주어 찾기와 수일치, (2) that절/what절 구분, (3) 동격 that vs 관계대명사 that, (4) to부정사와 동명사의 목적어 선택으로 자주 출제된다.',
+    memoryHint: '명사 문제는 "자리 확인 → 덩어리 경계 → 동사 호응" 순서로 푼다.',
+    examples: [
+      { sentence: 'What you decide now will affect your final grade.', analysis: '해석: 네가 지금 결정하는 것은 최종 성적에 영향을 준다. 핵심 구조: [What절]이 주어. 중요성: what은 선행사를 포함해 자체로 명사절. 함정: that으로 바꾸면 문장 성분이 비어 틀린다.' },
+      { sentence: 'The fact that he was absent surprised everyone.', analysis: '해석: 그가 결석했다는 사실이 모두를 놀라게 했다. 핵심 구조: the fact와 동격 that절. 중요성: that절은 fact를 설명하는 내용절. 함정: 관계대명사 that으로 보고 뒤 문장 불완전성 찾으면 오판.' },
+      { sentence: 'Collecting reliable data takes more time than you think.', analysis: '해석: 신뢰할 만한 자료를 수집하는 것은 네가 생각하는 것보다 시간이 더 걸린다. 핵심 구조: 동명사구 주어 + 단수동사 takes. 함정: data를 보고 복수동사로 끌려가기 쉽다.' },
+      { sentence: 'To finish the report by Friday is impossible for us.', analysis: '해석: 금요일까지 보고서를 끝내는 것은 우리에게 불가능하다. 핵심 구조: to부정사구 주어. 중요성: 길면 가주어 it으로 바꿔 출제. 함정: is/are 수일치.' },
+      { sentence: 'One of the teachers who guide us is from Canada.', analysis: '해석: 우리를 지도하는 선생님들 중 한 분은 캐나다 출신이다. 핵심 구조: one이 핵심 주어. 함정: of 뒤 teachers 때문에 are로 오답 유도.' },
+    ],
   },
   {
-    "id": 2,
-    "title": "형용사와 그 확장",
-    "description": "형용사 자리와 후치수식을 익힌다.",
-    "keyQuestion": "형용사는 무엇을 꾸미는가?",
-    "trap": "보어/수식어 혼동",
-    "coreConcept": "형용사와 그 확장는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  },
+    id: 2, title: '형용사와 그 확장', description: '형용사는 명사를 꾸미거나 보어로 쓰이며, "무엇을 꾸미는지"가 정답의 핵심이다.', keyQuestion: '이 구조가 앞의 명사를 꾸미는가, 아니면 보어 자리인가?', trap: '형용사/부사 혼동, 후치수식(to부정사·분사·전치사구) 연결 대상을 잘못 잡는 함정', coreConcept: '형용사는 명사 앞에서 바로 꾸밀 수도 있고, 명사 뒤에서 길게 꾸밀 수도 있다. 또한 be, become, seem 뒤 보어 자리에도 형용사가 온다.', examPattern: '빈칸에 형용사/부사 선택, 후치수식 연결 대상 찾기, -ed/-ing 형용사 구분, 보어 자리 품사 판단이 자주 출제된다.', memoryHint: '형용사는 "누구를 꾸미는가" 한 번만 정확히 잡아도 절반은 끝난다.', examples: [
+      { sentence: 'Students eager to improve ask better questions.', analysis: '해석: 향상되기를 열망하는 학생들은 더 좋은 질문을 한다. 핵심 구조: eager to improve가 students 후치수식. 함정: eager를 부사 eagerly로 바꾸는 오답.' },
+      { sentence: 'The test was challenging but fair.', analysis: '해석: 그 시험은 도전적이지만 공정했다. 핵심 구조: be동사 뒤 형용사 보어 병렬. 함정: challenging과 fairly의 병렬 불균형.' },
+      { sentence: 'This is a rule useful for all first-year students.', analysis: '해석: 이것은 모든 고1 학생에게 유용한 규칙이다. 핵심 구조: useful for ... 후치수식. 함정: 관계절로 오독.' },
+      { sentence: 'I am interested in how languages change.', analysis: '해석: 나는 언어가 어떻게 변하는지에 관심이 있다. 핵심 구조: interested(감정의 원인 대상). 함정: interesting과 혼동.' },
+      { sentence: 'Any student absent today must submit a note.', analysis: '해석: 오늘 결석한 어떤 학생이든 확인서를 제출해야 한다. 핵심 구조: absent 형용사 후치수식. 함정: absently 같은 부사 형태.' },
+    ] },
   {
-    "id": 3,
-    "title": "부사와 그 확장",
-    "description": "부사 위치와 의미 범위를 본다.",
-    "keyQuestion": "부사는 무엇을 어떻게 제한하는가?",
-    "trap": "형용사-부사 오용",
-    "coreConcept": "부사와 그 확장는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "title": "동사와 문장의 심장",
-    "description": "동사 유형과 문장형식을 파악한다.",
-    "keyQuestion": "이 동사가 요구하는 보어/목적어는?",
-    "trap": "자동사/타동사 착각",
-    "coreConcept": "동사와 문장의 심장는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "title": "관계사 정복",
-    "description": "불완전/완전 문장으로 관계사를 고른다.",
-    "keyQuestion": "뒤 절이 완전한가 불완전한가?",
-    "trap": "선행사만 보고 고르는 함정",
-    "coreConcept": "관계사 정복는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "title": "분사와 분사구문",
-    "description": "분사 형태와 의미상 주어를 본다.",
-    "keyQuestion": "능동/수동 관계는 무엇인가?",
-    "trap": "해석만으로 분사 판단",
-    "coreConcept": "분사와 분사구문는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  },
-  {
-    "id": 7,
-    "title": "수일치와 거리 함정",
-    "description": "핵심 주어를 찾아 동사 수를 맞춘다.",
-    "keyQuestion": "진짜 주어는 무엇인가?",
-    "trap": "A of B 거리 함정",
-    "coreConcept": "수일치와 거리 함정는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  },
-  {
-    "id": 8,
-    "title": "병렬과 균형",
-    "description": "등위 구조의 형태 대칭을 본다.",
-    "keyQuestion": "and 양쪽의 품사는 같은가?",
-    "trap": "형태 불균형",
-    "coreConcept": "병렬과 균형는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  },
-  {
-    "id": 9,
-    "title": "도치·강조·생략",
-    "description": "강조/도치 패턴을 인식한다.",
-    "keyQuestion": "왜 도치가 일어났는가?",
-    "trap": "일반어순으로 오독",
-    "coreConcept": "도치·강조·생략는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  },
-  {
-    "id": 10,
-    "title": "접속사·전치사·부사 구분",
-    "description": "뒤에 오는 구조로 품사를 판단한다.",
-    "keyQuestion": "뒤에 절인가 명사구인가?",
-    "trap": "because/because of 혼동",
-    "coreConcept": "접속사·전치사·부사 구분는 자리와 구조를 먼저 본다.",
-    "examPattern": "어색한 부분 고르기, 빈칸, 옳은/틀린 문장 선택으로 출제된다.",
-    "memoryHint": "이름보다 문장 뼈대를 먼저 확인하라.",
-    "examples": [
-      {
-        "sentence": "The book on the desk is mine.",
-        "analysis": "핵심 주어는 The book, on the desk는 전치사구 수식어."
-      },
-      {
-        "sentence": "What he said was true.",
-        "analysis": "What절이 주어 역할을 한다."
-      }
-    ]
-  }
+    id:3,title:'부사와 그 확장',description:'부사는 동사·형용사·문장 전체를 수식하며, 위치에 따라 의미 범위가 달라진다.',keyQuestion:'이 부사가 무엇을 수식하는지 범위를 정확히 잡았는가?',trap:'only, even, almost 위치 함정 / however를 접속사처럼 쓰는 오류',coreConcept:'부사는 문장의 양념이 아니라 정보의 초점을 바꾸는 장치다. 같은 단어라도 위치가 바뀌면 강조 대상이 바뀐다.',examPattern:'어순 배열, 의미상 적절한 부사 위치, 접속부사(however, therefore) 문장부호 문제로 출제.',memoryHint:'부사는 뜻보다 범위다. "무엇을 제한하는가"를 먼저 본다.',examples:[
+      {sentence:'She almost finished all the questions.',analysis:'해석: 그녀는 거의 모든 문제를 끝낼 뻔했다/거의 다 끝냈다 맥락 확인. 핵심: almost 범위. 함정: all 앞뒤 위치에 따른 의미 차이.'},
+      {sentence:'Only Minji solved the hardest item.',analysis:'해석: 민지만 가장 어려운 문항을 풀었다. 핵심: only가 Minji를 한정. 함정: Only solved로 착각.'},
+      {sentence:'He spoke clearly enough to be understood.',analysis:'해석: 그는 이해될 만큼 충분히 분명하게 말했다. 핵심: 부사 clearly + enough toV. 함정: clear로 오답.'},
+      {sentence:'However, the data do not support that claim.',analysis:'해석: 그러나 그 자료는 그 주장을 뒷받침하지 않는다. 핵심: however는 접속부사. 함정: however S V를 등위접속사처럼 쉼표 없이 연결.'},
+      {sentence:'The teacher intentionally left one mistake.',analysis:'해석: 선생님은 의도적으로 실수 하나를 남겼다. 핵심: intentionally가 동작 의도 수식. 함정: intentional 형용사 오용.'}
+    ]},
+  {id:4,title:'동사와 문장의 심장',description:'동사는 문장 형식을 결정한다. 무엇이 필요한 동사인지가 핵심이다.',keyQuestion:'이 동사는 목적어/보어/전치사를 무엇까지 요구하는가?',trap:'자동사·타동사 혼동, to부정사 vs 동명사 목적어 선택 함정',coreConcept:'동사는 문장의 심장이다. 같은 뜻처럼 보여도 뒤에 오는 구조가 다르면 다른 동사다.',examPattern:'어법상 맞는 동사 형태, 목적어 필요 여부, 5형식 보어, 준동사 목적어 선택 문제로 자주 출제.',memoryHint:'동사를 보면 반드시 "뒤 구조"까지 한 세트로 외운다.',examples:[{sentence:'The discussion lasted for two hours.',analysis:'해석: 토론은 두 시간 동안 지속되었다. 핵심: last는 자동사. 함정: lasted the discussion처럼 목적어 붙이는 오류.'},{sentence:'The coach advised us to review our errors.',analysis:'해석: 코치는 우리가 오답을 복습하라고 조언했다. 핵심: advise O toV. 함정: advise us reviewing.'},{sentence:'She made her point clear.',analysis:'해석: 그녀는 자신의 요점을 분명하게 만들었다. 핵심: 5형식 make O C. 함정: clear를 부사 clearly로 오용.'},{sentence:'I stopped to drink water.',analysis:'해석: 나는 물을 마시기 위해 멈췄다. 핵심: stop toV(목적). 함정: stop V-ing와 의미 혼동.'},{sentence:'I stopped drinking soda.',analysis:'해석: 나는 탄산음료 마시는 것을 끊었다. 핵심: stop V-ing(중단). 중요: toV/V-ing 의미 대조 출제.'}]},
+  {id:5,title:'관계사 정복',description:'관계사 문제는 선행사보다 뒤 절의 완전성 판단이 먼저다.',keyQuestion:'관계사 뒤 문장이 완전한가, 불완전한가?',trap:'where/which, what/that, that의 세 역할(명사절/관계대명사/동격) 혼동',coreConcept:'관계대명사는 절 안에서 성분 역할을 하므로 뒤가 불완전하고, 관계부사는 절 안 성분이 이미 채워져 뒤가 완전하다.',examPattern:'관계사 빈칸, 선행사-관계사 매칭, 전치사+관계대명사, what/that 구분이 반복 출제.',memoryHint:'관계사는 "뒤 절 완전성" 체크가 1번 버튼이다.',examples:[{sentence:'This is the house where my grandfather was born.',analysis:'해석: 이곳은 내 할아버지가 태어난 집이다. 핵심: where+완전절. 함정: which로 바꾸려면 in which 필요.'},{sentence:'This is the house which my grandfather built.',analysis:'해석: 이곳은 내 할아버지가 지은 집이다. 핵심: which가 built의 목적어. 뒤 불완전.'},{sentence:'What she needs is confidence.',analysis:'해석: 그녀에게 필요한 것은 자신감이다. 핵심: what=the thing that. 함정: what 앞에 선행사 두는 오류.'},{sentence:'I know that he is honest.',analysis:'해석: 나는 그가 정직하다는 것을 안다. 핵심: that 명사절(목적어절). 함정: 관계대명사 that으로 오판.'},{sentence:'The news that he passed the exam shocked us.',analysis:'해석: 그가 시험에 합격했다는 소식은 우리를 충격에 빠뜨렸다. 핵심: 동격 that. 뒤 완전.'}]},
+  {id:6,title:'분사와 분사구문',description:'분사는 명사를 꾸미거나 부사절을 줄인다. 능동/수동 관계 판단이 먼저다.',keyQuestion:'수식받는 명사와 분사 사이가 능동인가 수동인가?',trap:'현재분사/과거분사 혼동, 분사구문 의미상 주어 불일치',coreConcept:'-ing는 능동·진행 느낌, -ed(p.p.)는 수동·완료 느낌이 기본이다. 분사구문은 접속사+주어+동사를 줄인 구조다.',examPattern:'분사 형태 선택, 감정형용사(-ing/-ed), 분사구문 시제/부정/수동 변형으로 출제.',memoryHint:'분사는 해석보다 관계: "명사가 직접 하는가, 당하는가".',examples:[{sentence:'The students waiting outside are from Class 2.',analysis:'해석: 밖에서 기다리고 있는 학생들은 2반이다. 핵심: students가 기다리는 주체 → waiting.'},{sentence:'The questions asked by the teacher were tricky.',analysis:'해석: 선생님이 낸 문제들은 까다로웠다. 핵심: questions가 질문 "받은" 대상 → asked.'},{sentence:'Feeling tired, I went to bed early.',analysis:'해석: 피곤해서 나는 일찍 잤다. 핵심: 분사구문의 의미상 주어=주절 주어 I.'},{sentence:'Given more time, we could solve it.',analysis:'해석: 시간이 더 주어진다면 우리는 그것을 풀 수 있다. 핵심: 수동 의미 분사구문.'},{sentence:'Not knowing the rule, he guessed the answer.',analysis:'해석: 규칙을 몰라서 그는 답을 추측했다. 핵심: 부정 분사구문 Not + V-ing.'}]},
+  {id:7,title:'수일치와 거리 함정',description:'동사는 가까운 명사가 아니라 진짜 주어와 맞춘다.',keyQuestion:'수식어를 걷어냈을 때 남는 진짜 주어는 무엇인가?',trap:'A of B, each/every, either A or B, there be 구문 함정',coreConcept:'수일치는 해석보다 구조다. 전치사구/관계절/삽입구를 지우고 주어-동사만 남겨 확인한다.',examPattern:'동사 형태 고르기, 주어 찾기, 상관접속사 수일치, 집합명사 처리 문제로 출제.',memoryHint:'of 뒤 명사에 속지 말고 of 앞 핵심 주어를 본다.',examples:[{sentence:'A list of new rules is posted on the wall.',analysis:'해석: 새 규정 목록이 벽에 게시되어 있다. 핵심: 주어 list(단수).'}, {sentence:'Each of the players has a role.',analysis:'해석: 선수 각각은 역할이 있다. 핵심: each 단수 취급.'}, {sentence:'Neither the teacher nor the students were ready.',analysis:'해석: 선생님도 학생들도 준비되지 않았다. 핵심: 가까운 주어 students에 일치.'}, {sentence:'There are two reasons for the change.',analysis:'해석: 그 변화에는 두 가지 이유가 있다. 핵심: be동사는 뒤 진주어 reasons와 일치.'}, {sentence:'The number of applicants has increased.',analysis:'해석: 지원자 수가 증가했다. 핵심: the number는 단수. a number of와 대비 출제.'}]},
+  {id:8,title:'병렬과 균형',description:'병렬은 의미가 아니라 형태의 균형이 먼저다.',keyQuestion:'and, or, but 앞뒤가 같은 문법 형태인가?',trap:'to부정사/동명사 섞기, 전치사 중복 누락, 상관접속사 짝 불균형',coreConcept:'병렬 구조는 같은 급끼리 묶는다(명사-명사, toV-toV, 절-절). 길이가 달라도 품사가 같아야 한다.',examPattern:'어색한 부분 고르기에서 병렬 불균형 오답이 가장 자주 사용된다.',memoryHint:'and를 보면 자동으로 양쪽 형태를 나란히 비교한다.',examples:[{sentence:'She likes reading novels and writing reviews.',analysis:'해석: 그녀는 소설 읽기와 서평 쓰기를 좋아한다. 핵심: 동명사 병렬.'},{sentence:'He promised to call me and to send the file.',analysis:'해석: 그는 내게 전화하고 파일을 보내겠다고 약속했다. 핵심: toV 병렬.'},{sentence:'The goal is to think clearly and act quickly.',analysis:'해석: 목표는 명확히 생각하고 빠르게 행동하는 것이다. 핵심: 동사원형 병렬.'},{sentence:'Not only did he apologize, but he also corrected the error.',analysis:'해석: 그는 사과했을 뿐 아니라 오류도 바로잡았다. 핵심: not only A but also B 대칭.'},{sentence:'Students need both accuracy and speed.',analysis:'해석: 학생들은 정확성과 속도 둘 다 필요하다. 핵심: both A and B 명사 병렬.'}]},
+  {id:9,title:'도치·강조·생략',description:'특수 어순은 문법 장식이 아니라 "강조 신호"다.',keyQuestion:'왜 어순이 바뀌었고, 무엇을 강조하는가?',trap:'부정어 도치 누락, It is ~ that 강조구문과 가주어 it 혼동',coreConcept:'도치는 특정 부사어를 강조할 때 일어나며, 강조구문은 문장 성분을 spotlight에 올리는 장치다. 생략은 중복 회피다.',examPattern:'부정어 도치 어순, It is ~ that 식별, 비교구문 생략, 조동사 대용(do/so) 출제가 잦다.',memoryHint:'문두 부정어가 보이면 즉시 "조동사 도치"를 의심한다.',examples:[{sentence:'Never have I seen such a clear explanation.',analysis:'해석: 이렇게 명확한 설명은 본 적이 없다. 핵심: 부정어 문두 도치.'},{sentence:'Only then did she realize her mistake.',analysis:'해석: 그제서야 그녀는 자신의 실수를 깨달았다. 핵심: only+부사구 문두 도치.'},{sentence:'It was Minho that solved the final question.',analysis:'해석: 마지막 문제를 푼 사람은 민호였다. 핵심: It is~that 강조구문.'},{sentence:'It is important to review errors daily.',analysis:'해석: 매일 오답을 복습하는 것은 중요하다. 핵심: 가주어 it/진주어 toV.'},{sentence:'Some students can solve it, and others can, too.',analysis:'해석: 어떤 학생들은 그것을 풀 수 있고 다른 학생들도 그렇다. 핵심: can (solve it) 생략.'}]},
+  {id:10,title:'접속사·전치사·부사 구분',description:'품사는 뜻이 아니라 "뒤에 오는 구조"로 판별한다.',keyQuestion:'뒤에 절이 오는가, 명사구가 오는가, 아니면 문장 전체를 잇는가?',trap:'because vs because of, although vs despite, however를 접속사처럼 쓰는 오류',coreConcept:'접속사는 절+절을 연결하고, 전치사는 명사(구) 앞에 온다. 접속부사는 문장을 이어 주지만 문법적으로는 독립 절이다.',examPattern:'빈칸에 접속사/전치사 선택, 문장 연결 어휘, punctutation(세미콜론/쉼표)와 함께 출제.',memoryHint:'접속사는 절, 전치사는 명사구, however는 접속부사.',examples:[{sentence:'Because he was sick, he missed the class.',analysis:'해석: 그는 아팠기 때문에 수업을 빠졌다. 핵심: because + 절.'},{sentence:'Because of his illness, he missed the class.',analysis:'해석: 그의 병 때문에 수업을 빠졌다. 핵심: because of + 명사구.'},{sentence:'Although it was late, they kept studying.',analysis:'해석: 늦었지만 그들은 계속 공부했다. 핵심: although + 절.'},{sentence:'Despite the late hour, they kept studying.',analysis:'해석: 늦은 시간에도 그들은 계속 공부했다. 핵심: despite + 명사구.'},{sentence:'The plan looked simple; however, it was hard to execute.',analysis:'해석: 그 계획은 단순해 보였지만 실행은 어려웠다. 핵심: however는 접속부사(세미콜론/쉼표 사용).'}]},
 ];
