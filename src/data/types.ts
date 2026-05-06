@@ -23,20 +23,47 @@ export type QuizItem = {
   memoryPoint: string;
 };
 
+export type LayerRole =
+  | '주어'
+  | '동사'
+  | '목적어'
+  | '보어'
+  | '전치사구'
+  | '관계절'
+  | '명사절'
+  | '부사절'
+  | '분사구'
+  | 'to부정사구'
+  | '동명사구'
+  | '병렬 구조'
+  | '삽입구'
+  | '수식어';
+
 export type SentenceLayer = {
+  id: string;
+  label: string;
   text: string;
-  tag: string;
-  note: string;
-  color: string;
+  role: LayerRole;
+  startHint: string;
+  endHint: string;
+  explanation: string;
+  colorType: 'core' | 'modifier' | 'clause' | 'trap' | 'logic';
 };
 
 export type SentenceItem = {
   id: number;
   title: string;
+  level: QuizItem['level'];
+  type: string;
   sentence: string;
   koreanMeaning: string;
+  examSourceStyle: string;
   layers: SentenceLayer[];
+  skeleton: string;
   trapPoint: string;
-  answerLogic: string[];
+  wrongReason: string;
+  answerLogic: string;
+  decisionSteps: string[];
   examTip: string;
+  memoryPoint: string;
 };
