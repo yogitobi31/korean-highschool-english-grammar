@@ -21,6 +21,8 @@ export type QuizItem = {
   explanation: string;
   trap: string;
   memoryPoint: string;
+  wrongChoiceExplanations: Record<string, string>;
+  examTip: string;
 };
 
 export type LayerRole =
