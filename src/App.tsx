@@ -4,12 +4,7 @@ import { chapters } from './data/chapters';
 import { memoryPoints } from './data/memoryPoints';
 import { quizBank } from './data/quizBank';
 import { sentenceBank } from './data/sentenceBank';
-
-const safeGet = <T,>(key: string, fallback: T): T => {
-  if (typeof window === 'undefined') return fallback;
-  const raw = localStorage.getItem(key);
-  return raw ? (JSON.parse(raw) as T) : fallback;
-};
+import { loadFromStorage, saveToStorage } from './utils/storage';
 
 export function App() {
   const [selectedChapter, setSelectedChapter] = useState(1);
@@ -22,9 +17,9 @@ export function App() {
   const [sentenceId, setSentenceId] = useState(1);
 
   useEffect(() => {
-    setWrongNotes(safeGet<number[]>('wrongNotes', []));
-    setBookmarks(safeGet<number[]>('bookmarks', []));
-    setDone(safeGet('progress', { total: 0, correct: 0 }));
+    setWrongNotes(loadFromStorage<number[]>('wrongNotes', []));
+    setBookmarks(loadFromStorage<number[]>('bookmarks', []));
+    setDone(loadFromStorage('progress', { total: 0, correct: 0 }));
   }, []);
 
   const currentQuiz = quizBank[quizIndex % quizBank.length];
@@ -36,8 +31,8 @@ export function App() {
   const save = (nextWrong: number[], nextDone = done) => {
     setWrongNotes(nextWrong);
     setDone(nextDone);
-    localStorage.setItem('wrongNotes', JSON.stringify(nextWrong));
-    localStorage.setItem('progress', JSON.stringify(nextDone));
+    saveToStorage('wrongNotes', nextWrong);
+    saveToStorage('progress', nextDone);
   };
 
   const submitAnswer = () => {
@@ -95,10 +90,10 @@ export function App() {
           </div>
           <div className="card">
             <h2 className="text-lg font-semibold">기억 포인트 카드</h2>
-            <div className="grid gap-2 md:grid-cols-2">{memoryPoints.slice(0,20).map(m=><button key={m.id} className="rounded-xl border p-3 text-left" onClick={()=>{const n=bookmarks.includes(m.id)?bookmarks.filter(v=>v!==m.id):[...bookmarks,m.id];setBookmarks(n);localStorage.setItem('bookmarks',JSON.stringify(n));}}><div className="flex justify-between"><span className="text-sm">{m.text}</span><Bookmark size={16} className={bookmarks.includes(m.id)?'fill-amber-400 text-amber-500':'text-slate-400'}/></div></button>)}</div>
+            <div className="grid gap-2 md:grid-cols-2">{memoryPoints.slice(0,20).map(m=><button key={m.id} className="rounded-xl border p-3 text-left" onClick={()=>{const n=bookmarks.includes(m.id)?bookmarks.filter(v=>v!==m.id):[...bookmarks,m.id];setBookmarks(n);saveToStorage('bookmarks', n);}}><div className="flex justify-between"><span className="text-sm">{m.text}</span><Bookmark size={16} className={bookmarks.includes(m.id)?'fill-amber-400 text-amber-500':'text-slate-400'}/></div></button>)}</div>
           </div>
           <div className="card"><h2 className="text-lg font-semibold">검색 결과</h2>{searchResults.length===0?<p className="text-sm text-slate-500">검색어를 입력하세요.</p>:<ul className="list-disc pl-5">{searchResults.map((r,i)=><li key={i}>{r}</li>)}</ul>}</div>
-          <div className="card"><h2 className="text-lg font-semibold">오답노트</h2><p>저장된 오답: {wrongNotes.join(', ') || '없음'}</p><button className="mt-2 rounded-xl border px-3 py-2" onClick={()=>{setWrongNotes([]);localStorage.setItem('wrongNotes','[]');}}>전체 초기화</button></div>
+          <div className="card"><h2 className="text-lg font-semibold">오답노트</h2><p>저장된 오답: {wrongNotes.join(', ') || '없음'}</p><button className="mt-2 rounded-xl border px-3 py-2" onClick={()=>{setWrongNotes([]);saveToStorage('wrongNotes', []);}}>전체 초기화</button></div>
         </section>
       </main>
     </div>
