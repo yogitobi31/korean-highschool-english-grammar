@@ -1,69 +1,54 @@
 import { Chapter } from './types';
 
-const levels: Chapter['level'][] = ['고1 기본', '고1 심화', '고2 수능형', '내신 고난도'];
-
-const base: Omit<Chapter, 'level' | 'category' | 'intuition' | 'coreIdea' | 'structureMap' | 'examAlgorithm' | 'mustRemember' | 'commonTraps' | 'comparisonExamples' | 'quiz' | 'writingDrills' | 'examples'>[] = [
-  { id: 1, title: '명사와 그 확장', description: '명사는 문장에서 자리(주어/목적어/보어)를 채우는 핵심 덩어리다.', keyQuestion: '이 덩어리가 문장에서 명사 자리(주어/목적어/보어)에 들어갔는가?', trap: 'A of B에서 B를 주어처럼 착각하거나, 동명사/to부정사의 명사 역할을 놓치는 함정', coreConcept: '명사 문제는 뜻보다 자리부터 본다.', examPattern: '주어 찾기, that절/what절 구분, 동격 that, toV/V-ing가 빈출.', memoryHint: '자리 확인 → 덩어리 경계 → 동사 호응', examples: [] },
-  { id: 2, title: '형용사와 그 확장', description: '형용사는 명사를 꾸미거나 보어로 쓰인다.', keyQuestion: '이 구조가 앞의 명사를 꾸미는가, 보어 자리인가?', trap: '형용사/부사 혼동, 후치수식 연결 대상을 잘못 잡는 함정', coreConcept: '형용사는 누구를 꾸미는지 화살표를 그리면 풀린다.', examPattern: '형용사/부사 선택, 후치수식, -ed/-ing가 빈출.', memoryHint: '꾸밈 대상 먼저', examples: [] },
-  { id: 3, title: '부사와 그 확장', description: '부사는 수식 범위를 바꿔 정답을 갈라낸다.', keyQuestion: '이 부사가 무엇을 수식하는지 범위를 정확히 잡았는가?', trap: 'only, even, almost 위치 함정 / however 오용', coreConcept: '뜻보다 범위를 본다.', examPattern: '부사 위치, 접속부사 문장부호 출제', memoryHint: '무엇을 제한하는지 표시', examples: [] },
-  { id: 4, title: '동사와 문장의 심장', description: '동사는 뒤에 필요한 구조를 결정한다.', keyQuestion: '이 동사는 목적어/보어/전치사를 무엇까지 요구하는가?', trap: '자동사·타동사 혼동, toV/V-ing 목적어 함정', coreConcept: '동사는 뒤 구조까지 세트 암기.', examPattern: '문형, 5형식, 준동사 목적어 선택', memoryHint: '동사+뒤구조 세트', examples: [] },
-  { id: 5, title: '관계사 정복', description: '관계사는 뒤 절 완전성 판단이 핵심이다.', keyQuestion: '관계사 뒤 문장이 완전한가, 불완전한가?', trap: 'where/which, what/that, that 역할 혼동', coreConcept: '완전절이면 관계부사, 불완전절이면 관계대명사.', examPattern: '관계사 빈칸, 전치사+관계대명사', memoryHint: '뒤 절 완전성 1번 버튼', examples: [] },
-  { id: 6, title: '분사와 분사구문', description: '분사는 능동/수동 관계를 묻는다.', keyQuestion: '수식받는 명사와 분사 사이가 능동인가 수동인가?', trap: '-ing/-ed 혼동, 분사구문 의미상 주어 불일치', coreConcept: '명사가 하는가/당하는가를 본다.', examPattern: '분사 형태, 분사구문 변형 출제', memoryHint: '관계 먼저, 해석은 나중', examples: [] },
-  { id: 7, title: '수일치와 거리 함정', description: '동사는 가까운 명사가 아니라 진짜 주어와 맞춘다.', keyQuestion: '수식어를 걷어냈을 때 남는 진짜 주어는 무엇인가?', trap: 'A of B, each/every, there be 함정', coreConcept: '수일치는 구조 판단 문제.', examPattern: '주어-동사 일치', memoryHint: '삽입구 제거 후 판단', examples: [] },
-  { id: 8, title: '병렬과 균형', description: '병렬은 형태 균형이 먼저다.', keyQuestion: 'and/or/but 앞뒤가 같은 문법 형태인가?', trap: 'toV/V-ing 섞기, 전치사 누락', coreConcept: '같은 급끼리 병렬.', examPattern: '어색한 부분 찾기 빈출', memoryHint: 'and 양쪽 품사 비교', examples: [] },
-  { id: 9, title: '도치·강조·생략', description: '특수 어순은 강조 신호다.', keyQuestion: '왜 어순이 바뀌었고 무엇을 강조하는가?', trap: '부정어 도치 누락, 강조구문 혼동', coreConcept: '문두 신호를 보면 어순이 보인다.', examPattern: '도치, It is~that, 생략', memoryHint: '문두 부정어=도치', examples: [] },
-  { id: 10, title: '접속사·전치사·부사 구분', description: '품사는 뜻이 아니라 뒤 구조로 판별한다.', keyQuestion: '뒤에 절이 오는가, 명사구가 오는가?', trap: 'because/because of, although/despite, however', coreConcept: '접속사=절, 전치사=명사구, 접속부사=문장 연결.', examPattern: '연결어 빈칸, 문장부호', memoryHint: '뒤 형태를 체크', examples: [] },
+const chapterSeeds: Array<{
+  id: number;
+  title: string;
+  description: string;
+  keyQuestion: string;
+  trap: string;
+  coreConcept: string;
+  examPattern: string;
+  memoryHint: string;
+  intuition: string;
+  structureMap: string;
+  examAlgorithm: string[];
+  traps: string[];
+}> = [
+  {
+    id: 1,
+    title: '문장의 뼈대',
+    description: '주어·동사·목적어·보어를 먼저 잡아 1~5형식과 동사 개수를 판단한다.',
+    keyQuestion: '진짜 동사는 무엇이고, 그 동사가 요구하는 성분은 무엇인가?',
+    trap: '긴 수식어, 전치사구 명사, 준동사/관계사절 동사 착각',
+    coreConcept: '어법 문제의 시작은 문장 뼈대 찾기다.',
+    examPattern: '수일치, 자동사/타동사, 5형식 목적격보어 함정',
+    memoryHint: '동사 찾기 → 동사 개수 → 연결 장치 확인',
+    intuition: '동사를 찾고 주어·목적어/보어를 맞추면 절반은 풀린다.',
+    structureMap: 'S(주어) + V(동사) + O/C + M(수식어)로 색상 분해',
+    examAlgorithm: ['진짜 동사를 찾는다.', '동사 개수를 센다.', '2개 이상이면 연결 장치를 확인한다.', '주어-동사 수일치를 확인한다.', '동사 뒤 목적어/보어 필요 여부를 판단한다.', '남는 말이 수식어인지 보어인지 구분한다.'],
+    traps: ['전치사구 안 명사를 주어로 착각', '준동사를 본동사로 착각'],
+  },
+  {
+    id: 2, title: '명사와 명사의 확장', description: '명사절·동명사·to부정사가 주어/목적어/보어 자리를 채운다.', keyQuestion: '빈칸이 명사 자리인가?', trap: 'that절 vs 관계대명사 that, if 명사절/조건절 혼동', coreConcept: '긴 덩어리도 명사처럼 기능한다.', examPattern: '가주어/진주어, 가목적어/진목적어, 목적어 준동사', memoryHint: '자리 확인 → 명사 역할 덩어리 선택', intuition: '명사 자리는 단어 하나가 아니라 덩어리 자리다.', structureMap: '명사 자리 슬롯: [주어][목적어][보어]', examAlgorithm: ['빈칸이 주어/목적어/보어 자리인지 확인', '명사 역할 덩어리 필요 여부 확인', '동사 포함이면 명사절 검토', '의미만 명사화면 동명사/to부정사 검토', '긴 주어/목적어의 it 가주어/가목적어 여부 확인'], traps: ['동명사와 현재분사 혼동', '가목적어 it 뒤 목적격보어 누락'] },
+  { id: 3, title: '형용사와 명사 수식', description: '명사를 앞/뒤에서 수식하는 구·절의 구조를 판별한다.', keyQuestion: '수식받는 명사와 뒤 절의 완전성은?', trap: '관계대명사/관계부사, what/that 혼동', coreConcept: '길어진 수식어는 뒤로 가며 완전성 판단이 핵심이다.', examPattern: '관계사, 분사, 전치사+관계대명사', memoryHint: '선행사 찾기 → 뒤 절 완전성', intuition: '명사 뒤 설명 덩어리를 정확히 해석하면 고난도도 풀린다.', structureMap: 'N + [관계절/분사구] 후치수식 구조', examAlgorithm: ['수식받는 명사를 찾는다.', '뒤 덩어리가 명사 설명인지 확인한다.', '동사 유무로 구/절 구분한다.', '절이면 관계사 필요 여부를 본다.', '불완전절=관계대명사, 완전절=관계부사 가능성 검토', '분사 능동(-ing)/수동(p.p.) 판단'], traps: ['interesting/interested 감정분사 오류', '삽입구로 선행사-동사 관계 착각'] },
+  { id: 4, title: '부사와 문장 확장', description: '부사/부사절/분사구문으로 상황 정보를 덧붙이는 법을 다룬다.', keyQuestion: '뒤에 절인가, 명사구인가?', trap: 'because/because of, although/despite, during/while 혼동', coreConcept: '부사는 뼈대가 아니라 상황 정보다.', examPattern: '부사절 접속사, 전치사 vs 접속사, 분사구문', memoryHint: '필수 성분 완성 확인 후 부가 정보 판단', intuition: '언제·왜·어떻게를 설명하는 확장 장치를 구분한다.', structureMap: 'Main clause + adverbial chunk', examAlgorithm: ['문장 필수 성분 완성 여부 확인', '남은 덩어리의 의미(시간/이유/조건 등) 확인', '주어+동사 있으면 접속사, 명사만 있으면 전치사', '분사구문은 접속사+주어 생략 구조인지 점검', '분사구문 주체와 주절 주어 일치 확인'], traps: ['분사구문 주어 불일치', 'to부정사 목적/결과/판단근거 혼동'] },
+  { id: 5, title: '동사의 시간과 태도', description: '시제·완료·조동사·가정법으로 화자의 관점을 읽는다.', keyQuestion: '기준 시점과 사건의 앞뒤 관계는?', trap: 'since-현재완료, ago-과거, 가정법/진짜과거 혼동', coreConcept: '시제는 시간표가 아니라 관점 표시다.', examPattern: '시제일치, 완료, 조동사 추론', memoryHint: '시간표현 → 기준시점 → 앞뒤관계', intuition: '같은 사건도 시제로 거리감과 태도가 달라진다.', structureMap: '기준점(now/past)에서 사건 위치 배치', examAlgorithm: ['시간 표현 찾기', '기준 시점(현재/과거) 확인', '두 사건의 선후관계 판단', '완료의 연결감 유무 확인', '가정법의 사실 반대 여부 확인', '조동사의 태도(추측/의무/후회) 판단'], traps: ['must have p.p.와 cannot have p.p. 혼동', '시제일치 예외 누락'] },
+  { id: 6, title: '능동과 수동 / 특수동사', description: '태 판단과 사역/지각동사의 목적어-보어 관계를 훈련한다.', keyQuestion: '주어가 행동을 하는가, 당하는가?', trap: '자동사 수동태, make/see 수동태에서 to 복원', coreConcept: '수동태는 be p.p. 암기가 아니라 역할 판단이다.', examPattern: '3·4·5형식 수동태, have/get 사역', memoryHint: '주어 역할 + 동사의 타동성 체크', intuition: '주어 관점에서 행동의 방향을 보면 태가 정리된다.', structureMap: '능동(S→V→O) vs 수동(S←be p.p.)', examAlgorithm: ['주어를 찾는다.', '주어의 행동 주체/피동 여부 판단', '목적어 필요한 동사인지 확인', '수동태 뒤 목적어가 남는지 점검', '사역/지각동사 O-OC 관계 확인', 'O가 직접/당함에 따라 원형·-ing·p.p. 선택'], traps: ['be p.p. 뒤 목적어 오류', '4형식 수동태 남는 목적어 처리 실패'] },
+  { id: 7, title: '비교와 병렬', description: '비교구문과 병렬 구조에서 A/B 균형을 맞춘다.', keyQuestion: 'A와 B의 문법 모양이 균형적인가?', trap: '이중비교, not only A but also B 불균형', coreConcept: '뜻보다 구조의 균형이 먼저다.', examPattern: '비교급, 배수사, 상관접속사, 수일치', memoryHint: '연결어 양쪽 품사·구조 대칭', intuition: '비교와 병렬은 모양 맞추기 게임이다.', structureMap: 'A = B / A > B 및 병렬 축 정렬', examAlgorithm: ['비교 대상 A/B 찾기', '동일 종류 비교인지 확인', 'as/than 뒤 생략 복원', '병렬 연결어 앞뒤 구조 맞춤', '상관접속사 짝 확인', 'either/or·neither/nor 수일치 주의'], traps: ['than 뒤 대명사 격 오류', 'the 비교급, the 비교급 어순 혼동'] },
+  { id: 8, title: '일치와 어순', description: '진짜 주어 기반 수일치와 도치/강조/간접의문문 복원을 다룬다.', keyQuestion: '평서문 기본 어순으로 복원하면 맞는가?', trap: 'a number of/the number of, 부정어 도치, 간접의문문 어순', coreConcept: '수일치는 주어 찾기, 어순은 복원 싸움이다.', examPattern: '도치, 강조구문, 삽입구, 관계사절 수일치', memoryHint: '괄호 제거 후 주어·동사 맞추기', intuition: '복잡한 수식어를 지우고 기본 어순으로 돌아오면 답이 보인다.', structureMap: '[(수식어)] 제거 → S V 확인 → 도치 복원', examAlgorithm: ['진짜 주어를 찾는다.', '전치사구/관계사절/분사구 제거', '주어 단복수 판단', '도치를 원래 어순으로 복원', '간접의문문이 평서문 어순인지 확인', 'It is/was ~ that 강조 대상을 확인'], traps: ['관계사절 동사를 본동사로 착각', 'only/부정어 도치 누락'] },
 ];
 
-export const chapters: Chapter[] = base.map((c, idx) => ({
+const levels: Chapter['level'][] = ['고1 기본', '고1 심화', '고2 수능형', '내신 고난도'];
+
+export const chapters: Chapter[] = chapterSeeds.map((c, idx) => ({
   ...c,
-  level: levels[idx % 4],
+  level: levels[idx % levels.length],
   category: c.title,
-  intuition: `${c.title}는 용어 암기가 아니라, 문장 뼈대를 빠르게 분해해서 정답 근거를 찾는 훈련이다.`,
-  coreIdea: `${c.coreConcept} 수능/내신에서는 '뜻'보다 '구조 신호'를 먼저 잡는 학생이 이긴다.`,
-  structureMap: `1) 핵심 주어/동사 표시 → 2) 구/절 경계 표시 → 3) 함정 단어(${c.trap.split(',')[0]}) 체크 → 4) 선택지 대입 검증`,
-  examAlgorithm: ['핵심 주어·동사 먼저 표시', '수식어(전치사구/삽입구) 걷어내기', '절과 구를 구분해 빈칸 자리 확인', '오답 유도 포인트를 먼저 배제', '정답 근거를 한 문장으로 말해 보기'],
+  coreIdea: `${c.coreConcept} 시험에서는 정의 암기보다 판단 순서가 점수를 만든다.`,
   mustRemember: [c.memoryHint, c.keyQuestion, c.examPattern],
-  commonTraps: [
-    {
-      title: '가까운 단어 끌림 함정',
-      explanation: `학생들이 ${c.title} 문제에서 가장 많이 틀리는 이유는, 눈에 먼저 보이는 단어에 끌려 구조 판단을 생략하기 때문이다.`,
-      wrongExample: '겉으로 그럴듯한 형태를 바로 선택함',
-      correctExample: '자리/완전성/수식관계를 먼저 체크한 뒤 선택함',
-      examTip: '정답을 고르기 전에 "내가 지금 구조 근거를 말할 수 있나?"를 자문한다.',
-    },
-  ],
-  comparisonExamples: [
-    { a: 'Because he was late, he ran.', b: 'Because of his delay, he ran.', point: '절 vs 명사구를 구분하면 선택이 즉시 갈린다.' },
-    { a: 'What she said was right.', b: 'That she said was right. (X)', point: 'what은 성분, that은 연결 역할이라는 차이를 체감한다.' },
-  ],
-  examples: [
-    {
-      sentence: 'The list of items is on the desk.',
-      meaning: '항목 목록이 책상 위에 있다.',
-      explanation: 'of items는 수식어이므로 진짜 주어는 list다. 시험은 이 지점에서 수일치/품사를 흔든다.',
-    },
-    {
-      sentence: 'It is important to review errors daily.',
-      meaning: '매일 오답을 복습하는 것은 중요하다.',
-      explanation: '긴 주어를 뒤로 보내고 가주어 it으로 문장 뼈대를 안정화한 대표 구조다.',
-    },
-  ],
-  quiz: [
-    {
-      question: `${c.title} 유형에서 가장 먼저 할 행동은?`,
-      choices: ['뜻부터 해석한다', '핵심 주어/동사와 구·절 경계를 먼저 본다', '어휘 난도 높은 단어를 찾는다'],
-      answer: '핵심 주어/동사와 구·절 경계를 먼저 본다',
-      explanation: '실전 어법은 해석보다 구조 우선 판단이 정답률을 올린다.',
-      trapPoint: '뜻풀이식 접근에 끌려 시간과 정확도를 동시에 잃는다.',
-    },
-  ],
-  writingDrills: [
-    {
-      korean: '수식어를 빼고 핵심 뼈대만 남겨 문장을 써 봐라.',
-      targetStructure: '주어 + 동사 + (목적어/보어)',
-      modelAnswer: 'The rule works.',
-      explanation: '복잡한 문장을 볼수록 먼저 뼈대를 단문으로 복원하는 습관이 필요하다.',
-    },
-  ],
+  commonTraps: c.traps.map((t) => ({ title: t, explanation: t, examTip: '선택지 보기 전에 구조를 먼저 확정한다.' })),
+  comparisonExamples: [{ a: 'I know that he is honest.', b: 'I know the boy that is honest.', point: 'A의 that은 명사절 접속사, B의 that은 관계대명사다.' }],
+  examples: [{ sentence: 'The quality of the students is improving.', meaning: '학생들의 질이 향상되고 있다.', explanation: 'of the students는 수식어이고 진짜 주어는 The quality다.' }],
+  quiz: [{ question: '이 챕터의 1순위 판단은?', choices: ['어휘 난도 확인', '문장 구조와 자리 판단', '해석만 빠르게 하기'], answer: '문장 구조와 자리 판단', explanation: '수능/내신 어법은 구조 근거를 먼저 잡아야 오답 함정을 피할 수 있다.', trapPoint: '뜻만 보고 선택하면 함정에 걸린다.' }],
+  writingDrills: [{ korean: '핵심 뼈대만 남겨 한 줄로 써 보세요.', targetStructure: 'S + V + (O/C)', modelAnswer: 'The rule works for me.', explanation: '수식어를 걷어내는 연습이 실전 정답률을 올린다.' }],
 }));
