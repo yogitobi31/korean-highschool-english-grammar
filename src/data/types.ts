@@ -1,5 +1,44 @@
+
+
+export type ChapterTrap = {
+  title: string;
+  explanation: string;
+  wrongExample?: string;
+  correctExample?: string;
+  examTip: string;
+};
+
+export type ChapterComparisonExample = {
+  a: string;
+  b: string;
+  point: string;
+};
+
+export type ChapterExample = {
+  sentence: string;
+  meaning: string;
+  explanation: string;
+};
+
+export type ChapterQuiz = {
+  question: string;
+  choices?: string[];
+  answer: string;
+  explanation: string;
+  trapPoint: string;
+};
+
+export type WritingDrill = {
+  korean: string;
+  targetStructure: string;
+  modelAnswer: string;
+  explanation: string;
+};
+
 export type Chapter = {
   id: number;
+  level: '고1 기본' | '고1 심화' | '고2 수능형' | '내신 고난도';
+  category: string;
   title: string;
   description: string;
   keyQuestion: string;
@@ -7,7 +46,16 @@ export type Chapter = {
   coreConcept: string;
   examPattern: string;
   memoryHint: string;
-  examples: { sentence: string; analysis: string }[];
+  intuition: string;
+  coreIdea: string;
+  structureMap: string;
+  examAlgorithm: string[];
+  mustRemember: string[];
+  commonTraps: ChapterTrap[];
+  comparisonExamples: ChapterComparisonExample[];
+  examples: ChapterExample[];
+  quiz: ChapterQuiz[];
+  writingDrills?: WritingDrill[];
 };
 
 export type QuizItem = {
